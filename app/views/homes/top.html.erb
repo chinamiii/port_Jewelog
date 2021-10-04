@@ -1,1 +1,18 @@
-top
+    <div id="container">
+      <div id="theTarget">
+        <div class="image1"></div>
+        <div class="image2"></div>
+        <div class="image3"></div>
+        <div class="image4"></div>
+        <div class="image5"></div>
+      </div>
+    </div>
+
+<div class="item">
+  <%= link_to "ピアス", search_path(params["ピアス"]) %>
+  <% genres.each do |genre|%>
+        <tr>
+          <td class='font'><%= link_to genre.name, public_genre_path(genre.id), class: 'text-decoration-none text-secondary' %></td>
+        </tr>
+      <% end %>
+</div>

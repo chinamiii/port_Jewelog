@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.all.order(params[:sort])
   end
 
   def edit
@@ -39,7 +39,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :caption, :post_image, :jewel, :price, :item, :material, :shop_name)
+    params.require(:post).permit(:title, :caption, :rate, :post_image, :jewel, :price, :item, :material, :shop_name)
   end
 
 end

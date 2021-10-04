@@ -13,7 +13,22 @@
           <%= f.label :"写真" %>
           <%= f.attachment_field :post_image, placeholder: "投稿画像",class:"form-control-file" %>
         </div>
-        <div class="form mb-3">
+
+        <div id="rate_<%= @post.id %>"></div>
+
+         <script>
+          $('#rate_<%= @post.id %>').raty({
+          size: 20,
+          starOff:  '<%= asset_path('star-off.png') %>',
+          starOn : '<%= asset_path('star-on.png') %>',
+          starHalf: '<%= asset_path('star-half.png') %>',
+          half: true,
+          readOnly: true,
+          score: <%= @post.rate %>,
+          });
+         </script>
+
+        <div class="form mb-3 mt-3">
           <%= f.label :"タイトル" %>
           <%= f.text_field :title, class:"form-control" %>
         </div>
@@ -37,6 +52,7 @@
           <%= f.label :"お値段" %>
           <%= f.select :price, {'~ 9999': '~ 9999', '10000 ~ 15000': '10000 ~ 15000', '15000 ~ 20000': '15000 ~ 20000', '20000 ~ 25000': '20000 ~ 25000', '25000 ~ 30000': '25000 ~ 30000', '30000 ~ 40000': '30000 ~ 40000', '40000 ~ 50000': '40000 ~ 50000','50000 ~ 60000': '50000 ~ 60000' }, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
         </div>
+
         <div class="form mb-3">
           <%= f.label :"購入した店舗名" %>
           <%= f.text_area :shop_name, class:"form-control" %>

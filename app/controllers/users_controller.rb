@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @posts = @user.post.page(params[:posts_page]).per(6)
+    @posts = @user.post.page(params[:posts_page]).per(4)
+    @favorites = @user.favorites.page(params[:favorites_page]).per(4)
   end
 
   def edit

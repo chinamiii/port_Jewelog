@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'homes#top'
+  get '/home/search' =>'homes#search',as: 'search'
   get '/home/about' => 'homes#about',as: 'about'
 
   resources :posts do
@@ -8,6 +9,9 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
   end
   resources :users do
+    collection do
+      get :favorites
+    end
     resources :relationships, only: [:create, :destroy]
     get 'followings' => 'relationships#followings', as: 'followings'
     get 'followers' => 'relationships#followers', as: 'followers'
