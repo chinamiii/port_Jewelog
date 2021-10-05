@@ -1,0 +1,2 @@
+$('#favorites_<%= @post.id %>').html("<%= j(render "favorites/favorites", post: @post) %>");
+<!--コメントが作成されたらcommentsAreaに部分テンプレートの内容を更新する-->

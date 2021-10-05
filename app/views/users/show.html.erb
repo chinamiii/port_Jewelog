@@ -8,18 +8,26 @@
        <table class="table">
         <tbody>
          <tr>
-           <th><%= @user.name %></th>
+           <th>名前 <%= @user.name %></th>
          </tr>
-           <th><%= @user.introduction %></th>
-         </tr>
-         <tr>
-           <th>投稿数 : <%= current_user.post.count %></th>
+           <th>一言 <%= @user.introduction %></th>
          </tr>
          <tr>
-           <th>フォロー中</th>
+           <th>投稿数 <%= current_user.post.count %>件</th>
          </tr>
          <tr>
-           <th>フォロワー</th>
+           <th>お気に入り
+           <%= link_to user_followings_path(@user) do %>
+             <%= @user.followings.count %>人
+           <% end %>
+           </th>
+         </tr>
+         <tr>
+           <th>フォロワー
+           <%= link_to user_followers_path(@user) do %>
+             <%= @user.followers.count %>人
+           <% end %>
+           </th>
          </tr>
         </tbody>
        </table>
@@ -30,6 +38,16 @@
           <% end %>
          </div>
         <% end %>
+
+        <% if @user != current_user %>
+          <% if current_user.following?(@user) %>
+            <%= link_to "お気に入りから外す", user_relationship_path(user_id: @user, id: @user), method: :delete %>
+          <% else %>
+            <%= link_to "お気に入りに追加", user_relationships_path(@user.id), method: :post %>
+          <% end %>
+        <% end %>
+
+
         <%= link_to "ユーザーを探す", users_path %>
         <%= link_to "投稿する", new_post_path %>
    </div>

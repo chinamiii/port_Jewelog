@@ -1,11 +1,15 @@
 class HomesController < ApplicationController
   def top
+  @posts = Post.where(item: ['ピアス', 'リング', 'ネックレス', 'ブレスレット'])
   end
 
   def about
   end
 
-  def search
-    @posts = Post.where(item: "ピアス").where(item: "ブレスレット")
+  def item
+    @posts = Post.where(item: ['ピアス', 'リング', 'ネックレス', 'ブレスレット'])
+
   end
+
+
 end

@@ -1,0 +1,5 @@
+$('#post_comments_<%= @post.id %>').html("<%= j(render "post_comments/post_comments", post: @post) %>");
+<!--コメントが作成されたらcommentsAreaに部分テンプレートの内容を更新する-->
+
+$('#post_comment_comment').val("")
+<!--コメントを入力するtextエリアの値をリセットする-->

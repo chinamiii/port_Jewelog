@@ -1,3 +1,0 @@
-$('#posts').append("<%= escape_javascript(render 'users/posts', object: @posts) %>");
-$("#view_more").replaceWith("<%= escape_javascript(
-link_to_next_page(@posts, 'もっと見る', remote: true, id: 'view_more')) %>");

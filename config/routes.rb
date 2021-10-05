@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'homes#top'
-  get '/home/search' =>'homes#search',as: 'search'
-  get '/home/about' => 'homes#about',as: 'about'
+  get '/home/about' =>'homes#about',as: 'about'
+  get '/home/item' =>'homes#item',as: 'item'
 
   resources :posts do
     resources :post_comments, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]
+    resources :items, only: [:index]
   end
   resources :users do
     collection do
