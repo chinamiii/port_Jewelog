@@ -6,8 +6,12 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    @post.save
-    redirect_to post_path(@post.id)
+    if @post.save
+       flash[:notice] = "投稿が完了しました。"
+       redirect_to post_path(@post.id)
+    else
+       render :new
+    end
   end
 
   def show
@@ -25,8 +29,12 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update(post_params)
-    redirect_to post_path(@post.id)
+    if @post.update(post_params)
+       flash[:notice] = "変更が完了しました。"
+       redirect_to post_path(@post.id)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -34,6 +42,12 @@ class PostsController < ApplicationController
     @post.destroy
     redirect_to posts_path
 
+  end
+
+  def search
+    @posts = Post.search(params[:keyword])
+    @keyword = params[:keyword]
+    render "index"
   end
 
   private

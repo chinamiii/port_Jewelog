@@ -7,9 +7,10 @@ class HomesController < ApplicationController
   end
 
   def item
-    @posts = Post.where(item: ['ピアス', 'リング', 'ネックレス', 'ブレスレット'])
+  @posts = Post.where(item: ['ピアス', 'リング', 'ネックレス', 'ブレスレット'])
 
   end
+
 
 
 end

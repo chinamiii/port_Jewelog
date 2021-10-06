@@ -5,14 +5,11 @@ class PostCommentsController < ApplicationController
     @comment.user_id = current_user.id
     @comment.post_id = @post.id
     @comment.save
-
-
   end
 
   def destroy
     @post = Post.find(params[:post_id])
     PostComment.find_by(id: params[:id], post_id: params[:post_id]).destroy
-
   end
 
   private

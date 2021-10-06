@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get '/home/about' =>'homes#about',as: 'about'
   get '/home/item' =>'homes#item',as: 'item'
+  get 'search' => 'posts#search'
 
   resources :posts do
     resources :post_comments, only: [:create, :destroy]
