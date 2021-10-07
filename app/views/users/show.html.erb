@@ -59,7 +59,10 @@
            <div class="col-xs-3 offset-md-3 mx-auto">
              <div class="list mr-3">
                 <%= link_to post_path(post.id) do %>
-                  <%= attachment_image_tag post, :post_image, format: 'jpeg',fallback: "no_image.jpg", size: "130x130", class: 'card-img-top item-target' %><br>
+                  <% if post.post_images.count > 0 %>
+                     <%= image_tag post.post_images.first.variant(resize: "200x200").processed %><br>
+                  <% end %>
+                  <!--< attachment_image_tag post, :post_image, format: 'jpeg',fallback: "no_image.jpg", size: "130x130", class: 'card-img-top item-target' %>-->
                   <p><%= post.title %></p>
                 <% end %>
              </div>
@@ -75,8 +78,13 @@
           <% @user.favorite_posts.each do |post| %>
            <div class="col-xs-3 offset-md-3 mx-auto">
              <div class="list mr-3">
+
                 <%= link_to post_path(post.id) do %>
-                  <%= attachment_image_tag post, :post_image, format: 'jpeg',fallback: "no_image.jpg", size: "130x130", class: 'card-img-top item-target' %><br>
+                  <% if post.post_images.count > 0 %>
+                     <%= image_tag post.post_images.first.variant(resize: "200x200").processed %><br>
+                  <% end %>
+                  <!--写真が投稿されていたら一枚目だけ表示する--
+                  <!--< attachment_image_tag post, :post_image, format: 'jpeg',fallback: "no_image.jpg", size: "130x130", class: 'card-img-top item-target' %>-->
                   <p><%= post.title %></p>
                 <% end %>
              </div>

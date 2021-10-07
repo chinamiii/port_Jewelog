@@ -10,8 +10,17 @@
        <%= form_with model: @post, local:true do |f| %>
 
         <div class="form-groupe mb-3">
-          <%= f.label :"写真" %>
-          <%= f.attachment_field :post_image, placeholder: "投稿画像",class:"form-control-file" %>
+          <%= f.label :"写真 (3枚まで登録できます)" %>
+          <%= f.file_field :post_images, multiple: true, placeholder: "投稿画像",class:"form-control-file" %>
+          <!--< f.attachment_field :post_image, placeholder: "投稿画像",class:"form-control-file" %>-->
+
+          <% if @post.post_images.present? %>
+            <p>現在登録されている画像（削除するものはチェックしてください）</p>
+            <% @post.post_images.each do |post_image| %>
+               <%= f.check_box :post_image_ids, {multiple: true}, post_image.id, false %>
+               <%= image_tag post_image, size:"100x100" %> <br>
+            <% end %>
+          <% end %>
         </div>
 
         <div id="rate_<%= @post.id %>"></div>

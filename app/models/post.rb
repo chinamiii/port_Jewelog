@@ -9,7 +9,8 @@ class Post < ApplicationRecord
     favorites.where(user_id: user.id).exists?
   end
 
-  attachment :post_image
+  #attachment :post_image
+  has_many_attached :post_images
 
 
   def self.search(keyword)
@@ -20,9 +21,18 @@ class Post < ApplicationRecord
 
   validates :title, presence: true, length: {minimum: 2, maximum: 20}
   validates :caption, presence: true, length: {minimum: 2, maximum: 500}
-  validates :post_image, presence: true
-
   validates :rate, presence: true
   validates :jewel, presence: true
+  validate :post_image_length
+
+
+
+  private
+
+  def post_image_length
+    if post_images.length >= 4
+      errors.add(:post_images, "は3枚以内にしてください")
+    end
+  end
 
 end

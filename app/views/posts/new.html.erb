@@ -10,8 +10,8 @@
        <%= form_with model: @post, local:true do |f| %>
 
         <div class="form-groupe mb-3">
-          <%= f.label :"写真" %>
-          <%= f.attachment_field :post_image, placeholder: "投稿画像",class:"form-control-file" %>
+          <%= f.label :"写真 (3枚まで登録できます)" %>
+          <%= f.file_field :post_images, multiple: true, placeholder: "投稿画像",class:"form-control-file" %>
         </div>
         <div class="form mb-3">
           <%= f.label :"タイトル" %>

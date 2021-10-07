@@ -6,7 +6,12 @@
        <h2>詳細画面</h2>
        <p><%= @post.user.name %>さんの投稿です</p>
 
-         <p><%= attachment_image_tag @post, :post_image, format: "jpeg", fallback: "no_image.jpg", size: "350x350" %></p>
+
+         <% @post.post_images.each do |post_image| %>
+            <p><%= image_tag(post_image, width:300) %></p>
+         <% end %>
+
+             <!--< attachment_image_tag @post, :post_image, format: "jpeg", fallback: "no_image.jpg", size: "350x350" %>-->
 
          <div id="favorites_<%= @post.id %>">
            <%= render "favorites/favorites", post: @post %>
