@@ -9,7 +9,9 @@
                 <% @posts.each do |post| %>
                   <div class="item">
                     <%= link_to post_path(post.id) do %>
-                     <%= attachment_image_tag post, :post_image, format: "jpeg", fallback: "no_image.jpg", size: "200x200" %>
+                      <% if post.post_images.count > 0 %>
+                        <%= image_tag post.post_images.first.variant(resize: "200x200").processed %>
+                      <% end %>
                      <p><%= post.item %></p>
                     <% end %>
 

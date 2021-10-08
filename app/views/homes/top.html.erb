@@ -19,9 +19,11 @@
 
     <div class="item mt-5 mw-auto">
        <h4>アイテムから探す</h4>
-       <% @posts.each do |post|%>
-         <%= link_to "#{post.item}", item_path %>
-       <% end %>
+        <%= form_with url: item_path, method: :get, local: true do |f| %>
+          <%= f.select :item, {'リング': 'リング', 'ネックレス': 'ネックレス', 'ピアス': 'ピアス', 'ブレスレット': 'ブレスレット', 'アンクレット': 'アンクレット', 'ブローチ': 'ブローチ'}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
+          <%= f.submit '検索', class: 'btn btn-primary'  %>
+        <% end %>
+
      </div>
 
     <h3 class="title-border font mt-5"><strong>新着</strong></h3>

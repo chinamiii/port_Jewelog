@@ -6,9 +6,9 @@ class HomesController < ApplicationController
   def about
   end
 
-  def item
-  @posts = Post.where(item: ['ピアス', 'リング', 'ネックレス', 'ブレスレット'])
 
+  def item
+  @posts = Post.where(item: [:item])
   end
 
 

@@ -51,11 +51,11 @@
         <%= link_to "ユーザーを探す", users_path %>
         <%= link_to "投稿する", new_post_path %>
    </div>
-   <div class="col-md-7 ml-5">
+   <div class="col-md-6 ml-5">
    　  <h2>自分の投稿</h2>
        <div class="post_container">
 
-          <% @posts.each do |post| %>
+          <% @my_posts.each do |post| %>
            <div class="col-xs-3 offset-md-3 mx-auto">
              <div class="list mr-3">
                 <%= link_to post_path(post.id) do %>
@@ -70,7 +70,7 @@
           <% end %>
 
         </div>
-           <%= paginate @posts, param_name: 'posts_page' %>
+           <%= paginate @my_posts, param_name: 'posts_page' %>
 
         　　 <h2>いいねした投稿</h2>
        　<div class="post_container">
@@ -92,7 +92,7 @@
           <% end %>
 
         </div>
-           <%= paginate @favorites, param_name: 'favorites_page' %>
+           <%= paginate @posts, param_name: 'favorites_page' %>
 
 
 

@@ -19,6 +19,9 @@
 
  body{
    font-family: 'ヒラギノ丸ゴ Pro', 'Wawati SC', '游明朝','Yu Mincho', '游明朝体', 'YuMincho','ＭＳ Ｐ明朝', 'MS PMincho', serif;
+   background-color: rgba(255,255,255,0.7);
+   background-image: url(/assets/AdobeStock_251963149.jpeg);
+   background-blend-mode: lighten;
   }
 
 .item_container {
@@ -47,6 +50,34 @@
 }
 .image5 {
   background-image: url(pink.jpg);
+}
+.about_container {
+  background-image: url(AdobeStock_251963149.jpeg);
+  height: 800px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  background-size: 100% 100%;
+}
+.picture {
+  width: 100%;
+　margin: 0 auto;
+　display: flex;
+}
+.picture p{
+  color: #fff;
+  text-align: center;
+  padding:3px;
+}
+.about_content {
+  width: 60%; /* 横幅40% */
+  height: 800px; /* 親の高さに揃える */
+  background-color: rgba( 0, 0, 0, 0.2); /* 背景色を半透明の黒にする */
+  text-align: center;
+}
+.about_text{
+  color: #fff;
+  margin-top:40px;
 }
 #container{
   height: 500px;

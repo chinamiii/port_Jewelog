@@ -1,0 +1,11 @@
+ja:
+  enums:
+    contact:
+      subject:
+        '---': "---"
+        about_content: "コンテンツに関するお問い合わせ"
+        about_harassment: "迷惑行為についてのお問い合わせ"
+        how_to_use: "アプリの使い方について"
+        collaboration_request: "コラボ依頼"
+        other_inquiries: "その他のお問い合わせ"
+        

@@ -20,7 +20,7 @@
 
      <div class="form-group">
        <%= f.label :subject, '件名*' %>
-       <%= f.select :subject,  autofocus: true, class: 'form-control' %>
+       <%= f.select :subject_i18n, Contact.subjects.keys.map {|k| [I18n.t("enums.contact.subject.#{k}"), k]} %>
      </div>
 
      <div class="form-group">
