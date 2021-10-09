@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @my_posts = @user.post.page(params[:posts_page]).per(4)
-    @posts = @user.favorites.page(params[:favorites_page]).per(4)
+    @posts = Post.where(id: @user.favorites.pluck(:post_id)).page(params[:favorites_page]).per(4)
 
   end
 

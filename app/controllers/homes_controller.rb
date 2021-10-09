@@ -7,8 +7,9 @@ class HomesController < ApplicationController
   end
 
 
-  def item
-  @posts = Post.where(item: [:item])
+  def search
+  @posts = Post.where(item: params[:item])
+  render 'homes/item'
   end
 
 

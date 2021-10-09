@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'homes#top'
   get '/home/about' =>'homes#about',as: 'about'
-  get '/home/item' =>'homes#item',as: 'item'
+  get '/home/search' =>'homes#search',as: 'search_item'
   get 'search' => 'posts#search'
 
   resources :posts do
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     get 'followings' => 'relationships#followings', as: 'followings'
     get 'followers' => 'relationships#followers', as: 'followers'
   end
-  
+
   resources :contacts, only: [:new, :create]
   post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'
   post 'contacts/back', to: 'contacts#back', as: 'back'
