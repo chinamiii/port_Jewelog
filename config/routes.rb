@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
+  get 'inquiry/index'
+  get 'inquiry/confirm'
+  get 'inquiry/thanks'
   devise_for :users
   root to: 'homes#top'
   get '/home/about' =>'homes#about',as: 'about'
   get '/home/search' =>'homes#search',as: 'search_item'
   get 'search' => 'posts#search'
+  
+  get   'inquiry/index' => 'inquiry#index'     # 入力画面
+  post  'inquiry/confirm' => 'inquiry#confirm'   # 確認画面
+  post  'inquiry/thanks'  => 'inquiry#thanks'    # 送信完了画面
 
   resources :posts do
     resources :post_comments, only: [:create, :destroy]
