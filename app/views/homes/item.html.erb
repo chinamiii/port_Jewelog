@@ -10,9 +10,14 @@
                   <div class="item">
                     <%= link_to post_path(post.id) do %>
                       <% if post.post_images.count > 0 %>
-                        <%= image_tag post.post_images.first.variant(resize: "200x200").processed %>
+                        <div class="img_wrap">
+            　 　          <img>
+                           <%= image_tag post.post_images.first.variant(resize: "200x200").processed %>
+                         </img>
+                        </div>
                       <% end %>
                      <p><%= post.item %></p>
+
                     <% end %>
 
                     <p id="rate_<%= post.id %>"></p>

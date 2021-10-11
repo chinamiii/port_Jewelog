@@ -58,6 +58,7 @@
   display: flex;
   justify-content: flex-end;
   background-size: 100% 100%;
+
 }
 .picture {
   width: 100%;
@@ -85,6 +86,10 @@
   margin: 0 auto;
   margin-top: 50px
 }
+.material{
+  display: flex;
+  justify-content: space-around;
+}
 
 footer{
  height: 100px;
@@ -92,4 +97,22 @@ footer{
  p{
   color: #fff;
  }
+}
+
+.img_wrap{
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  overflow: hidden;
+  cursor: pointer;
+
+}
+.img_wrap img{
+  width: 100%;
+  transition-duration: 0.5s;
+}
+.img_wrap:hover img{
+  opacity: 0.6;
+  transform: scale(1.2);
+  transition-duration: 0.5s;
 }
