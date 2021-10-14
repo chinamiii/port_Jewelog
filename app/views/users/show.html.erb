@@ -2,7 +2,7 @@
 <div class="container mt-3">
 
  <div class="row">
-   <div class="col-md-4 mt-5">
+   <div class="col-md-4">
 
      <%= attachment_image_tag @user, :profile_image, format: "jpeg", fallback: "no_image.jpg", size: "130x130" %>
        <table class="table">
@@ -49,10 +49,15 @@
 
 
         <%= link_to "ユーザーを探す", users_path %>
-        <%= link_to "投稿する", new_post_path %>
+
    </div>
    <div class="col-md-4 ml-5">
-   　  <h2>自分の投稿</h2>
+   　  <h2>自分の投稿
+   　    <%= link_to new_post_path, class:"btn btn-outline-info" do %>
+          <i class="fas fa-plus"></i>
+        <% end %>
+   　  </h2>
+
        <div class="post_container">
 
           <% @my_posts.each do |post| %>
@@ -60,7 +65,7 @@
              <div class="list mr-3">
                 <%= link_to post_path(post.id) do %>
                   <% if post.post_images.count > 0 %>
-                     <%= image_tag post.post_images.first.variant(resize: "200x200").processed %><br>
+                     <%= image_tag post.post_images.first.variant(resize: "180x180").processed %><br>
                   <% end %>
                   <!--< attachment_image_tag post, :post_image, format: 'jpeg',fallback: "no_image.jpg", size: "130x130", class: 'card-img-top item-target' %>-->
                   <p><%= post.title %></p>
@@ -81,7 +86,7 @@
 
                 <%= link_to post_path(post.id) do %>
                   <% if post.post_images.count > 0 %>
-                     <%= image_tag post.post_images.first.variant(resize: "200x200").processed %><br>
+                     <%= image_tag post.post_images.first.variant(resize: "180x180").processed %><br>
                   <% end %>
                   <!--写真が投稿されていたら一枚目だけ表示する--
                   <!--< attachment_image_tag post, :post_image, format: 'jpeg',fallback: "no_image.jpg", size: "130x130", class: 'card-img-top item-target' %>-->
