@@ -1,10 +1,14 @@
 <div class="container ">
   <div class="row">
 
-      <div class="col-md-5 mt-3">
+      <div class="col-md-5">
 
        <h2>詳細画面</h2>
-       <p><%= @post.user.name %>さんの投稿です</p>
+       <p>
+         <%= link_to user_path(@post.user) do %>
+           <%= @post.user.name %>さん
+         <% end %>の投稿です
+       </p>
 
 
          <% @post.post_images.each do |post_image| %>
@@ -12,10 +16,14 @@
          <% end %>
 
              <!--< attachment_image_tag @post, :post_image, format: "jpeg", fallback: "no_image.jpg", size: "350x350" %>-->
-
+        <div class="flex">
          <div id="favorites_<%= @post.id %>">
            <%= render "favorites/favorites", post: @post %>
          </div>
+         <div class="create ml-5">
+           <%= @post.created_at.strftime('%Y/%m/%d') %>
+         </div>
+        </div>
 
          <div id="rate_<%= @post.id %>"></div>
 
@@ -30,7 +38,7 @@
           score: <%= @post.rate %>,
           });
          </script>
-
+        <div class="title mt-3">
          <p>タイトル：<%= @post.title %></p>
          <p>感想：<%= @post.caption %></p>
          <p>アイテム：<%= @post.item %></p>
@@ -38,14 +46,16 @@
          <p>宝石の種類：<%= @post.jewel %></p>
          <p>お値段：¥<%= @post.price %></p>
          <p>購入した店舗名：<%= @post.shop_name %></p>
+        </div>
 
            <% if @post.user == current_user %>
-
+                 <div class="edit mb-5">
                    <td>
                      <%= link_to "編集", edit_post_path(@post), class:"btn btn-sm btn-success" %>
                    </td>
                    <td>
                      <%= link_to "削除", post_path(@post), method: :delete, data:{confirm: "本当に消しますか？"}, class:"btn btn-sm btn-danger" %>
+                 </div>
                    </td>
 
            <% end %>
@@ -58,7 +68,7 @@
 
 
             <%= form_with(model:[@post, @post_comment], remote: true) do |f| %>
-              <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに", class:"form-control" %>
+              <%= f.text_area :comment, rows:'5',placeholder: "コメントを投稿しよう", class:"form-control mb-3" %>
               <%= f.submit "送信する" %>
             <% end %>
 

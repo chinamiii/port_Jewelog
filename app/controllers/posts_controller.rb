@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  
+
   def new
     @post = Post.new
   end
@@ -21,7 +21,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all.order(params[:sort])
+    @posts = Post.all.order(params[:sort]).page(params[:posts_page]).per(16)
   end
 
   def edit
@@ -30,7 +30,6 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-
     if params[:post][:post_image_ids]
       params[:post][:post_image_ids].each do |post_image_id|
         post_image = @post.post_images.find(post_image_id)

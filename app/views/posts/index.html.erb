@@ -6,6 +6,7 @@
 
         <h2>投稿一覧</h2>
            <%= link_to"新しい順", posts_path(sort: 'created_at DESC')%>｜<%= link_to"評価の高い順", posts_path(sort: 'rate DESC') %>
+
               <div class="item_container">
                 <% @posts.each do |post| %>
                   <div class="item">
@@ -19,7 +20,11 @@
                       <% end %>
                      <!--< attachment_image_tag post, :post_image, format: "jpeg", fallback: "no_image.jpg", size: "200x200" %>-->
                      <p><%= post.title %></p>
+
                     <% end %>
+                    <div id="favorites_<%= post.id %>">
+                     <%= render "favorites/favorites", post: post %>
+                    </div>
 
                     <p id="rate_<%= post.id %>"></p>
                     <script>
@@ -35,10 +40,9 @@
                     </script>
 
                   </div>
-
-
                 <% end %>
               </div>
+               <%= paginate @posts, param_name: 'posts_page' %>
 
     </div>
   </div>

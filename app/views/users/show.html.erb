@@ -32,7 +32,7 @@
         </tbody>
        </table>
         <% if @user.id == current_user.id %>
-         <div class="row">
+         <div class="row mb-3">
           <%= link_to edit_user_path(@user.id), class:"btn btn-outline-secondary btn-block" do %>
       　     <i class="fas fa-user-cog"></i>
           <% end %>
@@ -48,7 +48,9 @@
         <% end %>
 
 
-        <%= link_to "ユーザーを探す", users_path %>
+        <%= link_to "ユーザーを探す", users_path, class: "fas fa-search" %>
+
+
 
    </div>
    <div class="col-md-4 ml-5">
@@ -82,7 +84,7 @@
       <% end %>
 
 
-        　　 <h2>いいねした投稿</h2>
+        　<h2>いいねした投稿</h2>
        <% if @posts.exists? %>
        　<div class="post_container">
 
@@ -106,7 +108,7 @@
            <%= paginate @posts, param_name: 'favorites_page' %>
        <% else %>
         <p>いいねした投稿はありません</p>
-        <%= link_to "投稿を探してみよう！", posts_path, class:"btn btn-outline-success" %>
+        <%= link_to "投稿を探してみよう！", posts_path, class:"btn btn-outline-success mb-5" %>
        <% end %>
 
 
