@@ -12,6 +12,12 @@ class HomesController < ApplicationController
   render 'homes/item'
   end
 
+  def material
+  @posts = Post.where(material: params[:material]).or(Post.where(jewel: params[:jewel]))
+  render 'homes/material'
+  end
+
+
 
 
 end

@@ -1,0 +1,45 @@
+<div class="container mt-3">
+  <div class="row">
+
+    <div class="col-md-10 mx-auto">
+
+        <h2>投稿一覧</h2>
+
+              <div class="item_container">
+                <% @posts.each do |post| %>
+                  <div class="item">
+                    <%= link_to post_path(post.id) do %>
+                      <% if post.post_images.count > 0 %>
+                        <div class="img_wrap">
+            　 　          <img>
+                           <%= image_tag post.post_images.first.variant(resize: "200x200").processed %>
+                         </img>
+                        </div>
+                      <% end %>
+                     <p><%= post.item %></p>
+
+                    <% end %>
+
+                    <p id="rate_<%= post.id %>"></p>
+                    <script>
+                      $('#rate_<%= post.id %>').raty({
+                      size: 20,
+                      starOff:  '<%= asset_path('star-off.png') %>',
+                      starOn : '<%= asset_path('star-on.png') %>',
+                      starHalf: '<%= asset_path('star-half.png') %>',
+                      number: 5
+                      half: true,
+                      readOnly: true,
+                      score: <%= post.rate %>,
+                      });
+                    </script>
+
+                  </div>
+
+
+                <% end %>
+              </div>
+
+    </div>
+  </div>
+</div>

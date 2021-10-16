@@ -57,7 +57,7 @@
           <i class="fas fa-plus"></i>
         <% end %>
    　  </h2>
-
+      <% if @my_posts.exists? %>
        <div class="post_container">
 
           <% @my_posts.each do |post| %>
@@ -76,8 +76,14 @@
 
         </div>
            <%= paginate @my_posts, param_name: 'posts_page' %>
+      <% else %>
+        <p>投稿はまだありません</p>
+        <%= link_to "早速投稿してみよう！", new_post_path, class:"btn btn-outline-success mb-5" %>
+      <% end %>
+
 
         　　 <h2>いいねした投稿</h2>
+       <% if @posts.exists? %>
        　<div class="post_container">
 
           <% @posts.each do |post| %>
@@ -98,6 +104,10 @@
 
         </div>
            <%= paginate @posts, param_name: 'favorites_page' %>
+       <% else %>
+        <p>いいねした投稿はありません</p>
+        <%= link_to "投稿を探してみよう！", posts_path, class:"btn btn-outline-success" %>
+       <% end %>
 
 
 

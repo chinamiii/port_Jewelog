@@ -3,15 +3,15 @@
    <div class="col">
 　　<div class="material">
      <p>素材から探す</p>
-     <p><%= link_to">K18",search_item_path(:material["K18"]) %></p>
-     <p><%= link_to">K18PG",search_item_path(material: params[:K18PG]) %></p>
-     <p><%= link_to">K18WG",search_item_path(material: params["K18WG"]) %></p>
-     <p><%= link_to">PT",search_item_path(Post.where(material: params["PT"])) %></p>
+     <p><%= link_to">K18",material_path(material: "K18") %></p>
+     <p><%= link_to">K18PG",material_path(material: "K18PG") %></p>
+     <p><%= link_to">K18WG",material_path(material: "K18WG") %></p>
+     <p><%= link_to">PT",material_path(material: "PT") %></p>
      <p>宝石から探す</p>
-     <p><%= link_to">ダイヤモンド",search_item_path(Post.where(jewel: params["K18"])) %></p>
-     <p><%= link_to">ルビー",search_item_path(Post.where(jewel: params["K18"])) %></p>
-     <p><%= link_to">サファイヤ",search_item_path(Post.where(jewel: params["K18"])) %></p>
-     <p><%= link_to">パール",search_item_path(Post.where(jewel: params["K18"])) %></p>
+     <p><%= link_to">ダイヤモンド",material_path(jewel: "ダイヤモンド") %></p>
+     <p><%= link_to">ルビー",material_path(jewel: "ルビー") %></p>
+     <p><%= link_to">サファイヤ",material_path(jewel: "サファイヤ") %></p>
+     <p><%= link_to">パール",material_path(jewel: "パール") %></p>
     </div>
 
     <div id="container">
