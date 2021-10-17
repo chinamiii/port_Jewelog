@@ -6,7 +6,7 @@ class InquiryController < ApplicationController
   end
 
   def confirm
-     # 入力値のチェック
+    # 入力値のチェック
     @inquiry = Inquiry.new(params[:inquiry].permit(:name, :email, :message))
     if @inquiry.valid?
       # OK。確認画面を表示

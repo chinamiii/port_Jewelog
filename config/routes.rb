@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   get 'inquiry/thanks'
   devise_for :users
   root to: 'homes#top'
-  get '/home/about' =>'homes#about',as: 'about'
-  get '/home/search' =>'homes#search',as: 'search_item'
-  get '/home/material' =>'homes#material',as: 'material'
+  get '/home/about' => 'homes#about', as: 'about'
+  get '/home/search' => 'homes#search', as: 'search_item'
+  get '/home/material' => 'homes#material', as: 'material'
 
   get 'search' => 'posts#search'
 

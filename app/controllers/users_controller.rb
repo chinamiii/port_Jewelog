@@ -3,7 +3,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @my_posts = @user.post.page(params[:posts_page]).per(4)
     @posts = Post.where(id: @user.favorites.pluck(:post_id)).page(params[:favorites_page]).per(4)
-
   end
 
   def edit
@@ -13,10 +12,10 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-       flash[:notice] = "変更が完了しました。"
-       redirect_to user_path(@user.id)
+      flash[:notice] = "変更が完了しました。"
+      redirect_to user_path(@user.id)
     else
-       render :edit
+      render :edit
     end
   end
 
