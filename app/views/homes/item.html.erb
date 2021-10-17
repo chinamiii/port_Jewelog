@@ -4,6 +4,7 @@
     <div class="col-md-10 mx-auto">
 
         <h2>投稿一覧</h2>
+        <% if @posts.exists? %>
 
               <div class="item_container">
                 <% @posts.each do |post| %>
@@ -39,6 +40,10 @@
 
                 <% end %>
               </div>
+              <%= paginate @posts, param_name: 'posts_page' %>
+        <% else %>
+           <p>投稿はまだありません</p>
+        <% end %>
 
     </div>
   </div>

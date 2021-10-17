@@ -8,12 +8,12 @@ class HomesController < ApplicationController
 
 
   def search
-  @posts = Post.where(item: params[:item])
+  @posts = Post.where(item: params[:item]).where(material: params[:material]).where(jewel: params[:jewel]).page(params[:posts_page]).per(16)
   render 'homes/item'
   end
 
   def material
-  @posts = Post.where(material: params[:material]).or(Post.where(jewel: params[:jewel]))
+  @posts = Post.where(material: params[:material]).or(Post.where(jewel: params[:jewel])).page(params[:posts_page]).per(16)
   render 'homes/material'
   end
 

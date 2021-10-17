@@ -5,6 +5,7 @@
 
 
         <h2>投稿一覧</h2>
+        <% if @posts.exists? %>
            <%= link_to"新しい順", posts_path(sort: 'created_at DESC')%>｜<%= link_to"評価の高い順", posts_path(sort: 'rate DESC') %>
 
               <div class="item_container">
@@ -43,6 +44,9 @@
                 <% end %>
               </div>
                <%= paginate @posts, param_name: 'posts_page' %>
+        <% else %>
+           <p>投稿はまだありません</p>
+        <% end %>
 
     </div>
   </div>
