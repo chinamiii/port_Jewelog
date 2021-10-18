@@ -32,11 +32,14 @@
            </th>
          </tr>
          <tr>
-           <th>フォロワー
+           <th>ファン
            <%= link_to user_followers_path(@user) do %>
              <%= @user.followers.count %>人
            <% end %>
            </th>
+         </tr>
+         <tr>
+           <th>閲覧数 <%= number_with_delimiter(@page_views) %></th>
          </tr>
         </tbody>
        </table>
@@ -50,15 +53,13 @@
 
         <%= link_to "ユーザーを探す", users_path, class: "fas fa-search" %>
 
-
-
    </div>
    <div class="col-md-4 ml-5">
-   　  <h2>自分の投稿
+   　  <h4><%= @user.name %>さんの投稿
    　    <%= link_to new_post_path, class:"btn btn-outline-info" do %>
           <i class="fas fa-plus"></i>
         <% end %>
-   　  </h2>
+   　  </h4>
       <% if @my_posts.exists? %>
        <div class="post_container">
 
@@ -84,7 +85,7 @@
       <% end %>
 
 
-        　<h2>いいねした投稿</h2>
+        　<h4><%= @user.name %>さんがいいねした投稿</h4>
        <% if @posts.exists? %>
        　<div class="post_container">
 

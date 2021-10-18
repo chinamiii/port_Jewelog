@@ -33,4 +33,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true, length: { minimum: 2, maximum: 10 }
   validates :introduction, length: { maximum: 200 }
+
+  is_impressionable
 end

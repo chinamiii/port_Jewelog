@@ -16,7 +16,7 @@
      <header>
      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
        <div class="container">
-         <a class="navbar-brand" href="/"><span>Jewelog</span></a>
+         <a class="navbar-brand" href="/"><%= image_tag 'logo14.png', :size => '70x70', class: 'd-inline-block'%></a>
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
            <span class="navbar-toggler-icon"></span>
          </button>
@@ -79,7 +79,7 @@
 
         <%= form_with url: search_path, method: :get, local: true do |f| %>
           <%= f.text_field :keyword, value: @keyword %>
-          <%= f.submit '検索', class: 'btn btn-primary'  %>
+          <%= f.submit '検索', class: 'btn btn-primary' %>
         <% end %>
 
       </div>

@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    impressionist(@user, nil, :unique => [:session_hash.to_s])
+    @page_views = @user.impressionist_count
+
     @my_posts = @user.post.page(params[:posts_page]).per(4)
     @posts = Post.where(id: @user.favorites.pluck(:post_id)).page(params[:favorites_page]).per(4)
   end

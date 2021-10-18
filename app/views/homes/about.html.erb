@@ -1,11 +1,19 @@
 <div class="picture">
-  <p>about Jewelog</p>
-  <div class="about_container">
 
+  <div class="about_container">
     <div class="about_content">
       <p class="about_text">
-        Jewelyのレビューサイトです
+        Jewelogでは日々皆様からジュエリーのレビューを頂戴しております。<br>
+        <br>
+        アクセサリーに関して、本物思考の方のご意見はとても貴重です。<br>
+        <br>
+        満足度の高いアイテム達から、率直に感じたリアルな感想を是非投稿してください!<br>
+        <br>
+        尚、閲覧するには新規登録が必要です。
+        <br>
       </p>
+      <%= link_to "新規登録", new_user_registration_path, class:"btn btn-outline-light" %>
+      <%= link_to "ログイン", new_user_session_path, class:"btn btn-outline-light" %>
     </div>
   </div>
 
