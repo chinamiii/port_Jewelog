@@ -22,7 +22,7 @@
            <th>一言 <%= @user.introduction %></th>
          </tr>
          <tr>
-           <th>投稿数 <%= current_user.post.count %>件</th>
+           <th>投稿数 <%= @user.post.count %>件</th>
          </tr>
          <tr>
            <th>お気に入り
@@ -50,8 +50,9 @@
           <% end %>
          </div>
         <% end %>
-
-        <%= link_to "ユーザーを探す", users_path, class: "fas fa-search" %>
+         <div class="users">
+           <%= link_to "ユーザーを探す", users_path, class: "fas fa-search" %>
+         </div>
 
    </div>
    <div class="col-md-4 ml-5">
@@ -106,7 +107,9 @@
           <% end %>
 
         </div>
+          <div class="favorites_page mb-5">
            <%= paginate @posts, param_name: 'favorites_page' %>
+          </div>
        <% else %>
         <p>いいねした投稿はありません</p>
         <%= link_to "投稿を探してみよう！", posts_path, class:"btn btn-outline-success mb-5" %>

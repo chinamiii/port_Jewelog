@@ -7,6 +7,8 @@
 
       <h2>新規投稿</h2>
 
+      <%= render 'layouts/error_form', model: @post %>
+
        <%= form_with model: @post, local:true do |f| %>
 
         <div class="form-groupe mb-3">
