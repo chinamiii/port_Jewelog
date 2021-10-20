@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     impressionist(@user, nil, :unique => [:session_hash.to_s])
     @page_views = @user.impressionist_count
 
-    @my_posts = @user.post.page(params[:posts_page]).per(4)
+    @my_posts = @user.posts.page(params[:posts_page]).per(4)
     @posts = Post.where(id: @user.favorites.pluck(:post_id)).page(params[:favorites_page]).per(4)
   end
 

@@ -14,7 +14,7 @@
                    <%= attachment_image_tag user, :profile_image, format: "jpeg", fallback: "no_image.jpg", size: "80x80" %>
 
                    <p><%= user.name %></p>
-                   <p>投稿数 <%= user.post.count %>件</p>
+                   <p>投稿数 <%= user.posts.count %>件</p>
 
                    <p>ファンの数 <%= user.followers.count %>人</p>
 
