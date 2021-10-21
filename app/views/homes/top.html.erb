@@ -16,11 +16,25 @@
 
     <div id="container">
       <div id="theTarget">
-        <div class="image1"></div>
-        <div class="image2"></div>
-        <div class="image3"></div>
-        <div class="image4"></div>
-        <div class="image5"></div>
+        <div class="image1">
+          <h1>Jewelog</h1>
+        </div>
+        <div class="image2">
+          <h3>Jewelogでは沢山の投稿を募集しています♡</h3>
+        </div>
+        <div class="image3">
+          <h3>
+            プレゼント選びの参考にもなります！<br>
+            人気ジュエリーのレビューを覗いてみましょう♡
+          </h3>
+        </div>
+        <div class="image4">
+          <h3>
+            大切なご記念のジュエリー選びは慎重に<br>
+            色んなデザインを見比べてみましょう♡
+          </h3>
+        </div>
+
       </div>
     </div>
 
@@ -51,7 +65,7 @@
     <h3 class="title-border font mt-5"><strong>新着</strong></h3>
     <!-- 商品を4つ表示するようにする -->
     <div class="col-xs-offset-3">
-      <div class="item--card-content d-flex align-items-start">
+      <div class="item--card-content align-items-start">
         <% @posts.last(4).each do |post| %>
           <div class="col-xs-3 offset-md-3 mx-auto" style="padding-right: 20px; padding-left: 20px;">
             <%= link_to post_path(post.id) ,style: "color: black;", data: {"turbolinks" => false}, class: 'text-decoration-none img-wrap' do %>

@@ -37,21 +37,50 @@
 }
 
 .image1 {
-  background-image: image-url("main.png");
-
+  background-image: image-url("paru.jpeg");
+  position: relative;
 }
- .image2 {
-  background-image: image-url("makaron.jpeg");
+.image1 h1{
+  color: #103327;
+  position: absolute;
+  top: 25%;
+  left: 10%;
+}
+.image2 {
+  background-image: image-url("pink2.jpeg");
+  position: relative;
+}
+.image2 h3{
+  color: #103327;
+  position: absolute;
+  top: 40%;
+  left: 40px;
 }
 .image3 {
-  background-image: image-url("paradice.jpeg");
+  background-image: image-url("present.jpeg");
+  position: relative;
+}
+.image3 h3{
+  color: #103327;
+  position: absolute;
+  top: 30%;
+  left: 40px;
 }
 .image4 {
-  background-image: image-url("rainbow.jpeg");
+  background-image: image-url("snow.jpeg");
+  position: relative;
 }
-.image5 {
-  background-image: image-url("pink.jpg");
+.image4 h3{
+  color: #103327;
+  position: absolute;
+  top: 50%;
+  left: 40px;
 }
+
+.item--card-content{
+  display: flex;
+}
+
 .about_container {
   background-image: image-url("AdobeStock_251963149.jpeg");
   height: 800px;
@@ -127,3 +156,22 @@ footer{
 }
 
 
+
+
+/* スマートフォンサイズ（425px）以下の際に適用される設定 */
+@media screen and (max-width:425px) {
+  .material {
+    display: none;
+  }
+  #container {
+    width: 100%;
+    margin-top: 0px;
+  }
+  .item--card-content{
+    display: inline-block;
+  }
+  .post_container{
+    display: inline-block;
+  }
+
+}
