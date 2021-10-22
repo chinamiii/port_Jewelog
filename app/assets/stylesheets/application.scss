@@ -173,5 +173,16 @@ footer{
   .post_container{
     display: inline-block;
   }
+  .about_container {
+    background-size: contain;
+    display: inline-block;
+  }
+  .about_content {
+    width: 100%;
+    height: 100%;
+  }
+  .about_text{
+  margin-top:0px;
+  }
 
 }
