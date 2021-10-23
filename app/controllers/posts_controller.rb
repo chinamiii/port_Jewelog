@@ -53,7 +53,7 @@ class PostsController < ApplicationController
   def search
     @posts = Post.search(params[:keyword]).page(params[:posts_page]).per(16)
     @keyword = params[:keyword]
-    render "index"
+    render 'homes/material'
   end
 
   private

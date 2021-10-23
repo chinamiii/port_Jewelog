@@ -17,23 +17,12 @@
                          </img>
                         </div>
                       <% end %>
+                     <p><%= post.title %></p>
                      <p><%= post.item %></p>
 
                     <% end %>
 
-                    <p id="rate_<%= post.id %>"></p>
-                    <script>
-                      $('#rate_<%= post.id %>').raty({
-                      size: 20,
-                      starOff:  '<%= asset_path('star-off.png') %>',
-                      starOn : '<%= asset_path('star-on.png') %>',
-                      starHalf: '<%= asset_path('star-half.png') %>',
-                      number: 5
-                      half: true,
-                      readOnly: true,
-                      score: <%= post.rate %>,
-                      });
-                    </script>
+
 
                   </div>
 

@@ -3,8 +3,8 @@ require 'rails_helper'
 describe '[STEP3] 仕上げのテスト' do
   let(:user) { create(:user) }
   let(:other_user) { create(:user) }
-  let(:post) { create(:post, user: user) }
-  let(:other_post) { create(:post, user: other_user) }
+  let(:post) { create(:post,title: title, caption: caption,rate: rate,jewel: jewel, user: user) }
+  let(:other_post) { create(:post,title: title, caption: caption,rate: rate,jewel: jewel, user: other_user) }
 
   describe 'サクセスメッセージのテスト' do
     subject { page }
@@ -44,14 +44,58 @@ describe '[STEP3] 仕上げのテスト' do
       click_button 'これでOK!'
       is_expected.to have_content '変更が完了しました。'
     end
-    it '投稿データの新規投稿成功時: マイページから行います。' do
-      visit new_user_session_path
-      fill_in 'user[email]', with: user.email
-      fill_in 'user[password]', with: user.password
-      click_button 'ログイン'
-      visit new_post_path
-      click_button '投稿する'
-      is_expected.to have_content '投稿が完了しました。'
+  end
+
+  describe '処理失敗時のテスト' do
+    context 'ユーザ新規登録失敗: nameを1文字にする' do
+      before do
+        visit new_user_registration_path
+        @name = Faker::Lorem.characters(number: 1)
+        @email = 'a' + user.email # 確実にuser, other_userと違う文字列にするため
+        fill_in 'user[name]', with: @name
+        fill_in 'user[email]', with: @email
+        fill_in 'user[password]', with: 'password'
+        fill_in 'user[password_confirmation]', with: 'password'
+      end
+
+      it '新規登録されない' do
+        expect { click_button '登録' }.not_to change(User.all, :count)
+      end
+      it '新規登録画面を表示しており、フォームの内容が正しい' do
+        click_button '登録'
+        expect(page).to have_content '登録'
+        expect(page).to have_field 'user[name]', with: @name
+        expect(page).to have_field 'user[email]', with: @email
+      end
+    end
+  end
+
+  describe 'ログインしていない場合のアクセス制限のテスト: アクセスできず、ログイン画面に遷移する' do
+    subject { current_path }
+
+    it 'ユーザ一覧画面' do
+      visit users_path
+      is_expected.to eq '/users/sign_in'
+    end
+    it 'ユーザ詳細画面' do
+      visit user_path(user)
+      is_expected.to eq '/users/sign_in'
+    end
+    it 'ユーザ情報編集画面' do
+      visit edit_user_path(user)
+      is_expected.to eq '/users/sign_in'
+    end
+    it '投稿一覧画面' do
+      visit posts_path
+      is_expected.to eq '/users/sign_in'
+    end
+    it '投稿詳細画面' do
+      visit post_path(post)
+      is_expected.to eq '/users/sign_in'
+    end
+    it '投稿編集画面' do
+      visit edit_post_path(post)
+      is_expected.to eq '/users/sign_in'
     end
   end
 
