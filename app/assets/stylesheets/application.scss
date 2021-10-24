@@ -33,14 +33,15 @@ html,　body {
   height: 100%;
 }
 
-#wrapper {
+.wrapper {
   width: 100%;
   position: relative;
   min-height: 100vh;
 }
 
-main {
-  padding-bottom: 5em;
+
+.main {
+ padding-bottom: 100px;;
 }
 
 
