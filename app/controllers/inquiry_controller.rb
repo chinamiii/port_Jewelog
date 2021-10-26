@@ -1,8 +1,8 @@
 class InquiryController < ApplicationController
-  def index
+  def inquiries
     # 入力画面を表示
     @inquiry = Inquiry.new
-    render :action => 'index'
+    render :action => 'inquiries'
   end
 
   def confirm
@@ -13,7 +13,7 @@ class InquiryController < ApplicationController
       render :action => 'confirm'
     else
       # NG。入力画面を再表示
-      render :action => 'index'
+      render :action => 'inquiries'
     end
   end
 
