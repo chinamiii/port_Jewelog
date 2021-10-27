@@ -24,10 +24,6 @@ describe '[STEP1] ユーザログイン前のテスト' do
         sign_up_link = find_all('a')[3].native.inner_text
         expect(sign_up_link).to match(/新規登録/i)
       end
-      it '新規登録リンクの内容が正しい' do
-        sign_up_link = find_all('a')[3].native.inner_text
-        expect(page).to have_link sign_up_link, href: new_user_registration_path
-      end
     end
   end
 
