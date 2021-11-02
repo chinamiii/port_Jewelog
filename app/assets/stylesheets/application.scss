@@ -181,7 +181,18 @@ footer{
   display: flex;
 }
 
+.positiv{
+  color: blue;
+}
 
+.negativ{
+  color: red;
+}
+
+.size{
+  font-size: 3em;
+  color: #FF66CC;
+}
 
 
 /* スマートフォンサイズ（425px）以下の際に適用される設定 */
