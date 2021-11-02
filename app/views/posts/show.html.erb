@@ -25,10 +25,12 @@
          </div>
         </div>
 
-         <% if @post.score > 0 %>
-           <p>感情分析スコア</p><p class="positiv"><i class="fas fa-laugh-beam size"></i>　<%= @post.score %></p>
+         <% if @post.score > 0.4 %>
+           <p>感情分析スコア</p><p class="positiv"><i class="fas fa-laugh-beam size-positiv"></i>　<%= @post.score %></p>
+         <% elsif @post.score < -0.6 %>
+           <p>感情分析スコア</p><p class="negativ"><i class="fas fa-sad-cry size-negativ"></i>　<%= @post.score %></p>
          <% else %>
-           <p>感情分析スコア</p><p class="negativ"><i class="fas fa-sad-cry size"></i>　<%= @post.score %></p>
+           <p>感情分析スコア</p><p class="normal"><i class="fas fa-surprise size-normal"></i>　<%= @post.score %></p>
          <% end %>
 
          <div id="rate_<%= @post.id %>"></div>

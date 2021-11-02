@@ -189,9 +189,23 @@ footer{
   color: red;
 }
 
-.size{
+.normal{
+  color: green;
+}
+
+.size-positiv{
   font-size: 3em;
-  color: #FF66CC;
+  color: #FF1493;
+}
+
+.size-negativ{
+  font-size: 3em;
+  color: #FF99CC;
+}
+
+.size-normal{
+  font-size: 3em;
+  color: #EE82EE;
 }
 
 
