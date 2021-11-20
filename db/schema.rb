@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2021_11_01_102023) do
 
+# 複数枚投稿のテーブル
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -22,6 +23,7 @@ ActiveRecord::Schema.define(version: 2021_11_01_102023) do
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
+# 複数枚投稿のテーブル
   create_table "active_storage_blobs", force: :cascade do |t|
     t.string "key", null: false
     t.string "filename", null: false
