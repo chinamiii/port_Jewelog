@@ -12,6 +12,7 @@ class Post < ApplicationRecord
 
 
   # attachment :post_image
+  # 複数画像投稿のため
   has_many_attached :post_images
 
   def self.search(keyword)

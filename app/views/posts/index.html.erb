@@ -15,6 +15,7 @@
                       <% if post.post_images.count > 0 %>
                         <div class="img_wrap">
             　 　           <img>
+            　 　           <!--最初の１枚だけ表示--
                             <%= image_tag post.post_images.first.variant(resize: "200x200").processed %>
                           <img>
                         </div>

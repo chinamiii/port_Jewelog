@@ -13,6 +13,7 @@
 
         <div class="form-groupe mb-3">
           <%= f.label :"写真 (3枚まで登録できます)" %>
+          <!--チェックボックスを複数使う場合→multiple: true -->
           <%= f.file_field :post_images, multiple: true, placeholder: "投稿画像",class:"form-control-file" %>
         </div>
         <div class="form mb-3">

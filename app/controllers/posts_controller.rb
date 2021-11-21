@@ -28,6 +28,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+#purge 添付ファイルをモデルから削除
   def update
     @post = Post.find(params[:id])
     @post.score = Language.get_data(post_params[:caption])
