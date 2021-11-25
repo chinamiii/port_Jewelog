@@ -14,10 +14,10 @@
                     <%= link_to post_path(post.id) do %>
                       <% if post.post_images.count > 0 %>
                         <div class="img_wrap">
-            　 　           <img>
-            　 　           <!--最初の１枚だけ表示--
+
+            　 　           <!--最初の１枚だけ表示-->
                             <%= image_tag post.post_images.first.variant(resize: "200x200").processed %>
-                          <img>
+
                         </div>
                       <% end %>
                      <!--< attachment_image_tag post, :post_image, format: "jpeg", fallback: "no_image.jpg", size: "200x200" %>-->

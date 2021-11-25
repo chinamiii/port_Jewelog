@@ -53,7 +53,7 @@
          <p>アイテム：<%= @post.item %></p>
          <p>素材：<%= @post.material %></p>
          <p>宝石の種類：<%= @post.jewel %></p>
-         <p>お値段：¥<%= @post.price %></p>
+         <p>お値段：¥<%= @post.price.to_s(:delimited) %></p>
          <p>購入した店舗名：<%= @post.shop_name %></p>
         </div>
 
