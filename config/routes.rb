@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'inquiry/index'
-  get 'inquiry/confirm'
-  get 'inquiry/thanks'
 
   devise_for :users
   root to: 'homes#top'
@@ -11,9 +8,14 @@ Rails.application.routes.draw do
 
   get 'search' => 'posts#search'
 
-  get   'inquiry/inquiries' => 'inquiry#inquiries'     # 入力画面
-  post  'inquiry/confirm' => 'inquiry#confirm'   # 確認画面
-  post  'inquiry/thanks'  => 'inquiry#thanks'    # 送信完了画面
+
+  resources :inquiry, only: [:inquiries, :confirm, :thanks] do
+    collection do
+      get 'inquiries' # 入力画面
+      post 'confirm' # 確認画面
+      post 'thanks' # 送信完了画面
+    end
+  end
 
   resources :posts do
     resources :post_comments, only: [:create, :destroy]
@@ -29,9 +31,5 @@ Rails.application.routes.draw do
     get 'followers' => 'relationships#followers', as: 'followers'
   end
 
-  resources :contacts, only: [:new, :create]
-  post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'
-  post 'contacts/back', to: 'contacts#back', as: 'back'
-  get 'done', to: 'contacts#done', as: 'done'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
