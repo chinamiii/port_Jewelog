@@ -1,11 +1,10 @@
 ja:
-  enums:
-    contact:
-      subject:
-        '---': "---"
-        about_content: "コンテンツに関するお問い合わせ"
-        about_harassment: "迷惑行為についてのお問い合わせ"
-        how_to_use: "アプリの使い方について"
-        collaboration_request: "コラボ依頼"
-        other_inquiries: "その他のお問い合わせ"
-        
+  activerecord:
+    models:
+    attributes:
+          post:
+            title: "タイトル"
+            caption: "感想"
+            rate: "星評価"
+            jewel: "宝石"
+
