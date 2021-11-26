@@ -26,6 +26,10 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    if @post.user_id != current_user.id
+      redirect_to posts_path
+    end
+
   end
 
 #purge 添付ファイルをモデルから削除

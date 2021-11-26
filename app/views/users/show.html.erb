@@ -82,7 +82,9 @@
            <%= paginate @my_posts, param_name: 'posts_page' %>
       <% else %>
         <p>投稿はまだありません</p>
-        <%= link_to "早速投稿してみよう！", new_post_path, class:"btn btn-outline-success mb-5" %>
+        <% if @user.id == current_user.id %>
+         <%= link_to "早速投稿してみよう！", new_post_path, class:"btn btn-outline-success mb-5" %>
+        <% end %>
       <% end %>
 
 
@@ -111,7 +113,9 @@
           </div>
        <% else %>
         <p>いいねした投稿はありません</p>
-        <%= link_to "投稿を探してみよう！", posts_path, class:"btn btn-outline-success mb-5" %>
+        <% if @user.id == current_user.id %>
+          <%= link_to "投稿を探してみよう！", posts_path, class:"btn btn-outline-success mb-5" %>
+        <% end %>
        <% end %>
 
 
