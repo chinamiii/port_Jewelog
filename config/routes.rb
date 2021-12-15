@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   get '/home/about' => 'homes#about', as: 'about'
   get '/home/search' => 'homes#search', as: 'search_item'
   get '/home/material' => 'homes#material', as: 'material'
-
   get 'search' => 'posts#search'
+
 
 
   resources :inquiry, only: [:inquiries, :confirm, :thanks] do
